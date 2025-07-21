@@ -6,17 +6,32 @@ import (
 )
 
 func main() {
+	for{
 	var num1, num2 float64
 	var operator string
 
 	fmt.Println("Enter first number:")
 	fmt.Scanln(&num1)
 
-	fmt.Println("Enter second number:")
-	fmt.Scanln(&num2)
+	if operator != "sqrt" {
+		fmt.Println("Enter second number:")
+		fmt.Scanln(&num2)
+	} 
 
-	fmt.Println("Enter operator (+, -, *, /,%,^):")
+
+	fmt.Println("Enter operator (+, -, *, /,%,^, sqrt) or write exit to quit")
 	fmt.Scanln(&operator)
+
+	if operator == "exit" {
+		fmt.Println("Exiting , Goodbye!")
+		break
+	}
+
+	if operator != "sqrt" {
+		fmt.Println("Enter second number:")
+		fmt.Scanln(&num2)
+	} 
+
 
 	var result float64 
 
@@ -46,12 +61,22 @@ case "%":
 		}
 case "^":
 	result = math.Pow(num1, num2)
+
+case "sqrt":
+	if num1 >=0 {
+		result = math.Sqrt(num1)
+	} else {
+		fmt.Println("Square root of negative number is not allowed")
+		continue
+	}
+	
     
     default:
 		fmt.Println("Invalid Operator.")
-		return
+		continue
 	}
 
-
+	
 	fmt.Printf("Result: %.2f\n", result) 
+}
 }
