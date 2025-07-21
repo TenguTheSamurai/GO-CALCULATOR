@@ -27,12 +27,6 @@ func main() {
 		break
 	}
 
-	if operator != "sqrt" {
-		fmt.Println("Enter second number:")
-		fmt.Scanln(&num2)
-	} 
-
-
 	var result float64 
 
 	switch operator {
