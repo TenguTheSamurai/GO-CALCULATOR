@@ -5,6 +5,49 @@ import (
 	"math"
 )
 
+func calculate(num1,num2 float64, operator string) (float64, error) {
+	switch operator {
+	case "+":
+		return num1 + num2,nil
+	case "-":
+		return  num1 - num2,nil
+	case "*":
+		return  num1 * num2,nil
+	case "/":
+		if num2 != 0 {
+			return  num1 / num2,nil
+		} else {
+			return 0,fmt.Errorf("cannot divide by zero")
+			
+		}
+	
+
+	
+case "%":
+	if num2 != 0 {
+		return (float64(int(num1) % int(num2))),nil
+		} else {
+			return 0,fmt.Errorf(" Cannot divide by zero for modulo")
+			
+		}
+case "^":
+	return math.Pow(num1, num2),nil
+
+case "sqrt":
+	if num1 >0 {
+		return math.Sqrt(num1),nil
+	} else {
+		return 0,fmt.Errorf("square root of negative number is not allowed")
+		
+	}
+	
+    
+    default:
+		return 0, fmt.Errorf("invalid operator")
+		
+	}
+}
+
 func main() {
 	for{
 	var num1, num2 float64
@@ -27,50 +70,12 @@ func main() {
 		break
 	}
 
-	var result float64 
-
-	switch operator {
-	case "+":
-		result = num1 + num2
-	case "-":
-		result = num1 - num2
-	case "*":
-		result = num1 * num2
-	case "/":
-		if num2 != 0 {
-			result = num1 / num2
-		} else {
-			fmt.Println("Error: Cannot divide by zero")
-			return
-		}
-	
-
-	
-case "%":
-	if num2 != 0 {
-		result = (float64(int(num1) % int(num2)))
-		} else {
-			fmt.Println("Error: Cannot divide by zero for modulo.")
-			return
-		}
-case "^":
-	result = math.Pow(num1, num2)
-
-case "sqrt":
-	if num1 >=0 {
-		result = math.Sqrt(num1)
-	} else {
-		fmt.Println("Square root of negative number is not allowed")
+	result,err :=calculate(num1,num2 ,operator)
+	if err != nil {
+		fmt.Println("Error:",err)
 		continue
-	}
-	
-    
-    default:
-		fmt.Println("Invalid Operator.")
-		continue
-	}
+		}
 
-	
 	fmt.Printf("Result: %.2f\n", result) 
 }
 }
