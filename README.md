@@ -97,12 +97,6 @@ go run main.go
 
 ---
 
-## 📌 TODO (Optional Future Features)
-
-* Save history to a file
-* Add support for negative roots using complex numbers
-* Add unit tests
-* Turn into a basic GUI calculator
 
 ---
 
