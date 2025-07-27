@@ -20,9 +20,6 @@ func calculate(num1,num2 float64, operator string) (float64, error) {
 			return 0,fmt.Errorf("cannot divide by zero")
 			
 		}
-	
-
-	
 case "%":
 	if num2 != 0 {
 		return (float64(int(num1) % int(num2))),nil
