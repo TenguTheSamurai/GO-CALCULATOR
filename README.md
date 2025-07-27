@@ -1,6 +1,5 @@
 # GO-CALCULATOR
 <br>
-Here's a clean and professional **README** file for your Go-based calculator project:
 
 ---
 
